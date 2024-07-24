@@ -1,43 +1,24 @@
 {
   "name": "generalised-datastore",
-  "version": "2.0.0",
-  "description": "A generalise datastore",
-  "main": "GDS.js",
+  "version": "2.0.112",
+  "description": "A distributed datastore",
+  "main": "Index.js",
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "nodemon": "^3.1.4"
+  },
   "scripts": {
-    "start": "nodemon -r esm Index.js"
+    "start": "nodemon -r esm Index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/immanuel-savvy/GDS.git"
+    "url": "git+https://github.com/godprotocol4/GDS.git"
   },
-  "keywords": [
-    "datastore",
-    "data",
-    "store",
-    "joins",
-    "crud",
-    "GDS",
-    "generalise",
-    "decentralise"
-  ],
-  "author": "Savvy <immanuelsavvy@gmail.com> (https://github.com/immanuel-savvy)",
+  "author": "Savvy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/immanuel-savvy/GDS/issues"
+    "url": "https://github.com/godprotocol4/GDS/issues"
   },
-  "homepage": "https://github.com/immanuel-savvy/GDS#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.20.12",
-    "babel-preset-env": "^1.7.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "crypto": "^1.0.1",
-    "elliptic": "^6.5.5",
-    "esm": "^3.2.25",
-    "express": "^4.18.3",
-    "nodemon": "^3.0.3",
-    "semitter": "^1.2.1"
-  }
+  "homepage": "https://github.com/godprotocol4/GDS#readme"
 }
