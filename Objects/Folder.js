@@ -13,9 +13,21 @@ class Folder extends Operations {
     this.fs = this.ds.fs;
     this.parent = options.parent;
 
+    this.remotes = new Object();
+    this.remote_id = options.remote_id;
+    this.remote = options.remote;
+
     this.path = `${this.parent.path}/${this.name}`;
     this.subfolders = new Object();
   }
+
+  check_remote = (operation) => {
+    return ["read", "readone", "call"].includes(operation);
+  };
+
+  add_remote = (remote) => {
+    this.remotes[remote.remote_id] = remote;
+  };
 
   stringify = () => {
     let obj = {};

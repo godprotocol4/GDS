@@ -1,4 +1,4 @@
-_75c‍.x([["post_request",()=>post_request]]);const post_request = async (path, data) => {
+const post_request = async (path, data) => {
   try {
     let ftch = await fetch(path, {
       method: "POST",
@@ -23,4 +23,4 @@ _75c‍.x([["post_request",()=>post_request]]);const post_request = async (path,
   }
 };
 
-
+export { post_request };
