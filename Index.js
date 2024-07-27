@@ -9,7 +9,7 @@ gds
   })
   .then(async (datastore_main) => {
     let res = await datastore_main.call({ storage: 12 }, { assemble: true });
-    // console.log(res);
+    console.log(res);
     // datastore_main.program_config();
   });
 

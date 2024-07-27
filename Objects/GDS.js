@@ -14,6 +14,7 @@ class GDS {
     this.path = `${
       options.base_path || process.env.GDS_BASE || process.env.HOME + "/.GDS"
     }/${store_name}`;
+    this.remote_locations = new Object();
   }
 
   get_folder = (folder_name) => {
@@ -83,12 +84,13 @@ class GDS {
     let response = await post_request(`${config.server}/parse`, {
       payload: {
         physical_address: config.physical_address,
-        signature: config.signatue,
-        account: config.account,
         config: {
           remote_id,
+          manager_details: this.manager && this.manager.stringify(),
         },
       },
+      signature: this.sign(),
+      account: config.account,
     });
 
     if (!response || (response && !response.object))
@@ -102,7 +104,7 @@ class GDS {
       ...options,
       ds: this,
       parent: this,
-      remote: { response, config },
+      remote: { response, config, remote_id },
       remote_id,
     }).sync(options.sync);
 
