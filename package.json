@@ -4,12 +4,19 @@
   "description": "A distributed datastore",
   "main": "Index.js",
   "devDependencies": {
+    "@babel/cli": "latest",
+    "@babel/core": "^7.19.1",
+    "apidoc": "^0.54.0",
+    "babel-preset-env": "^1.7.0",
     "esm": "^3.2.25",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.0",
+    "npmignore": "^0.3.1"
   },
   "scripts": {
     "start": "nodemon -r esm Index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepack": "npmignore",
+    "build": "babel ./utils/functions.js ./utils/services.js ./Objects/Folder.js ./Objects/GDS.js ./Objects/Operations.js ./Objects/Queries.js ./Objects/Remote_operations.js ./Objects/Config.js ./Index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +27,13 @@
   "bugs": {
     "url": "https://github.com/godprotocol4/GDS/issues"
   },
-  "homepage": "https://github.com/godprotocol4/GDS#readme"
+  "homepage": "https://github.com/godprotocol4/GDS#readme",
+  "publishConfig": {
+    "ignore": [
+      ".github/",
+      "build/",
+      ".babelrc",
+      "node_modules/"
+    ]
+  }
 }
