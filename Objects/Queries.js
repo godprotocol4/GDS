@@ -85,7 +85,7 @@ class Queries {
       this.config.stats.files++;
       this.config.stats.total_size += data_str.length;
       this.config.stats.recent_file = data._id;
-      this.config.stats.recent_file_size += data_str.length;
+      this.config.stats.recent_file_size = data_str.length;
 
       this.config.persist();
     }

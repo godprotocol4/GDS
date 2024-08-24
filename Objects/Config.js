@@ -17,7 +17,16 @@ class Config {
     this.object.fs.writeFileSync(this.path, this.stringify(true));
   };
 
-  load = () => {};
+  load = () => {
+    let config = JSON.parse(this.object.fs.readFileSync(this.path));
+
+    this.stats.files = config.files;
+    this.stats.total_size = config.total_size;
+    this.created = config.created || Date.now();
+    this.updated = config.updated || Date.now();
+    this.stats.recent_file = config.recent_file;
+    this.stats.recent_file_size = config.recent_file_size;
+  };
 
   add_entry = (prop, value) => {
     this.stats[prop] = value;
